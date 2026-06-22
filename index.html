@@ -188,15 +188,38 @@
     .job-toggle { color: var(--slate-300); font-size: 13px; flex-shrink: 0; margin-top: 2px; transition: transform .2s; }
     .job-toggle.open { transform: rotate(180deg); }
 
-    .job-bullets {
+    .job-body {
       border-top: 1px solid var(--slate-100);
-      padding: 16px 20px;
+      padding: 20px;
       display: none;
     }
-    .job-bullets.open { display: block; }
-    .job-bullets ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .job-bullets li { display: flex; gap: 8px; font-size: 13px; color: var(--slate-600); line-height: 1.55; }
-    .bullet-arrow { color: var(--blue); flex-shrink: 0; margin-top: 1px; }
+    .job-body.open { display: block; }
+
+    .job-desc {
+      font-size: 13px; color: var(--slate-500); font-style: italic;
+      margin-bottom: 18px; line-height: 1.6;
+    }
+
+    .job-block-title {
+      font-size: 11px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .job-block-title.responsibilities { color: var(--slate-400); }
+    .job-block-title.achievements     { color: #b45309; }
+
+    .job-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+    .job-list li { display: flex; gap: 8px; font-size: 13px; color: var(--slate-600); line-height: 1.55; }
+    .bullet-arrow         { color: var(--blue);   flex-shrink: 0; margin-top: 1px; }
+    .bullet-star          { color: #d97706;        flex-shrink: 0; margin-top: 1px; }
+
+    .job-skill-tags { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 4px; }
+    .job-skill-tag {
+      padding: 3px 10px; border-radius: 99px;
+      font-size: 11px; font-weight: 500;
+      background: var(--slate-100); color: var(--slate-600);
+    }
+
+    .divider { border: none; border-top: 1px solid var(--slate-100); margin: 18px 0; }
 
     /* ── Contact ── */
     #contact { background: var(--navy); text-align: center; }
@@ -344,6 +367,7 @@
     <h2 class="section-title">4+ years across iGaming, Fintech & SaaS</h2>
     <div class="timeline">
 
+      <!-- Spinner -->
       <div class="job">
         <div class="job-dot current"></div>
         <div class="job-card" onclick="toggleJob(this)">
@@ -352,24 +376,42 @@
               <div class="job-top">
                 <span class="job-company">Spinner</span>
                 <span class="badge badge-current">Current</span>
-                <span class="badge badge-domain">iGaming</span>
+                <span class="badge badge-domain">iGaming · Live Casino</span>
               </div>
               <p class="job-role">QA Engineer</p>
               <p class="job-period">Sep 2025 – Present · Full-time · Remote</p>
             </div>
             <span class="job-toggle">▼</span>
           </div>
-          <div class="job-bullets">
-            <ul>
-              <li><span class="bullet-arrow">▸</span>Leading end-to-end QA for a live iGaming platform serving thousands of concurrent users.</li>
-              <li><span class="bullet-arrow">▸</span>Designing and maintaining regression, smoke and functional test suites in TestRail.</li>
-              <li><span class="bullet-arrow">▸</span>Executing API testing via Postman; documenting defects and tracking resolution in Jira.</li>
-              <li><span class="bullet-arrow">▸</span>Collaborating with developers in Agile sprints to shift quality left and reduce defect leakage.</li>
+          <div class="job-body">
+            <p class="job-desc">Live casino streaming platform serving thousands of concurrent players. Quality owner in an Agile team responsible for player-facing and back-office workflows.</p>
+
+            <p class="job-block-title responsibilities">Responsibilities</p>
+            <ul class="job-list">
+              <li><span class="bullet-arrow">▸</span>Design and maintain 150+ test cases covering player-facing and back-office workflows end-to-end.</li>
+              <li><span class="bullet-arrow">▸</span>Own the full defect lifecycle in Jira — structured bug reports, triage, tracking, and fix validation.</li>
+              <li><span class="bullet-arrow">▸</span>Apply risk-based testing to prioritise coverage before every production release.</li>
+              <li><span class="bullet-arrow">▸</span>Execute API testing via Postman against REST endpoints; validate backend data with SQL queries.</li>
+              <li><span class="bullet-arrow">▸</span>Maintain test plans, test cases, and QA documentation in Confluence for full team visibility.</li>
+              <li><span class="bullet-arrow">▸</span>Collaborate in Agile sprints to shift quality left and reduce defect leakage to production.</li>
             </ul>
+
+            <hr class="divider">
+
+            <p class="job-block-title achievements">⭐ Key Achievements</p>
+            <ul class="job-list">
+              <li><span class="bullet-star">★</span>Built Playwright E2E automation suite from scratch — increased regression coverage from 0% to ~35%, saving ~4 hours of manual testing per release cycle.</li>
+              <li><span class="bullet-star">★</span>Established QA standards and documentation structure adopted across the entire team.</li>
+            </ul>
+
+            <div class="job-skill-tags">
+              <span class="job-skill-tag">Manual Testing</span><span class="job-skill-tag">Playwright</span><span class="job-skill-tag">Postman</span><span class="job-skill-tag">REST API</span><span class="job-skill-tag">SQL</span><span class="job-skill-tag">Jira</span><span class="job-skill-tag">TestRail</span><span class="job-skill-tag">Confluence</span><span class="job-skill-tag">Risk-Based Testing</span><span class="job-skill-tag">Agile</span>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- JIGZO -->
       <div class="job">
         <div class="job-dot"></div>
         <div class="job-card" onclick="toggleJob(this)">
@@ -377,24 +419,42 @@
             <div class="job-meta">
               <div class="job-top">
                 <span class="job-company">Rezet — JIGZO</span>
-                <span class="badge badge-domain">Fintech / Payments</span>
+                <span class="badge badge-domain">Fintech · Crypto · Payments</span>
               </div>
-              <p class="job-role">QA Engineer</p>
+              <p class="job-role">QA Engineer (via Rezet outsourcing)</p>
               <p class="job-period">May 2024 – Dec 2025 · Contract · Remote</p>
             </div>
             <span class="job-toggle">▼</span>
           </div>
-          <div class="job-bullets">
-            <ul>
-              <li><span class="bullet-arrow">▸</span>Built automated UI test coverage with Playwright (TypeScript) reducing manual regression effort by ~40%.</li>
-              <li><span class="bullet-arrow">▸</span>Defined and executed performance load scripts using Grafana K6; identified bottlenecks under simulated peak load.</li>
-              <li><span class="bullet-arrow">▸</span>Wrote and maintained SQL queries to validate backend data integrity across payment flows.</li>
-              <li><span class="bullet-arrow">▸</span>Logged and triaged 150+ bugs in Jira; established defect classification standards adopted team-wide.</li>
+          <div class="job-body">
+            <p class="job-desc">Enterprise crypto asset management platform with payment integrations, transaction processing, and KYC verification. Sole QA engineer — full STLC ownership from requirements to release.</p>
+
+            <p class="job-block-title responsibilities">Responsibilities</p>
+            <ul class="job-list">
+              <li><span class="bullet-arrow">▸</span>Owned the full STLC across payment, KYC, and transaction modules as the sole QA on the project.</li>
+              <li><span class="bullet-arrow">▸</span>Designed and maintained 300+ test cases in TestRail; managed 200+ bug reports end-to-end in Jira.</li>
+              <li><span class="bullet-arrow">▸</span>API testing with Postman against REST/Swagger specs; SQL validation against MySQL databases.</li>
+              <li><span class="bullet-arrow">▸</span>Executed Grafana K6 performance and load testing scenarios (load, stress, spike).</li>
+              <li><span class="bullet-arrow">▸</span>Mentored 1 Junior QA Automation Engineer, accelerating team capability and automation output.</li>
             </ul>
+
+            <hr class="divider">
+
+            <p class="job-block-title achievements">⭐ Key Achievements</p>
+            <ul class="job-list">
+              <li><span class="bullet-star">★</span>Delivered the platform's first-ever public release after 5+ years of development — zero P1 defects at go-live.</li>
+              <li><span class="bullet-star">★</span>Identified 3 critical performance bottlenecks via Grafana K6 load testing before a major product launch.</li>
+              <li><span class="bullet-star">★</span>Established defect classification standards and test infrastructure adopted by the wider team.</li>
+            </ul>
+
+            <div class="job-skill-tags">
+              <span class="job-skill-tag">Manual Testing</span><span class="job-skill-tag">Postman</span><span class="job-skill-tag">REST API</span><span class="job-skill-tag">SQL</span><span class="job-skill-tag">Grafana K6</span><span class="job-skill-tag">Performance Testing</span><span class="job-skill-tag">TestRail</span><span class="job-skill-tag">Jira</span><span class="job-skill-tag">Confluence</span><span class="job-skill-tag">Fintech QA</span>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- Hagedoo -->
       <div class="job">
         <div class="job-dot"></div>
         <div class="job-card" onclick="toggleJob(this)">
@@ -402,24 +462,42 @@
             <div class="job-meta">
               <div class="job-top">
                 <span class="job-company">Rezet — Hagedoo</span>
-                <span class="badge badge-domain">Marketplace / E-commerce</span>
+                <span class="badge badge-domain">Marketplace · Mobile</span>
               </div>
-              <p class="job-role">QA Engineer</p>
+              <p class="job-role">QA Engineer (via Rezet outsourcing)</p>
               <p class="job-period">Jul 2023 – May 2024 · Contract · Remote</p>
             </div>
             <span class="job-toggle">▼</span>
           </div>
-          <div class="job-bullets">
-            <ul>
-              <li><span class="bullet-arrow">▸</span>Performed functional, regression and exploratory testing across web and mobile (iOS/Android) surfaces.</li>
+          <div class="job-body">
+            <p class="job-desc">Multi-platform B2C marketplace with native iOS/Android apps, payment flows, and order management. Responsible for web and mobile quality across all product releases.</p>
+
+            <p class="job-block-title responsibilities">Responsibilities</p>
+            <ul class="job-list">
+              <li><span class="bullet-arrow">▸</span>Owned manual testing of web + native mobile (iOS/Android) across all product releases.</li>
+              <li><span class="bullet-arrow">▸</span>Cross-browser and cross-device testing via BrowserStack and LambdaTest across 8+ configurations.</li>
+              <li><span class="bullet-arrow">▸</span>API testing with Postman; SQL data integrity validation on backend databases.</li>
               <li><span class="bullet-arrow">▸</span>Maintained comprehensive test suites in TestRail and produced weekly quality status reports.</li>
-              <li><span class="bullet-arrow">▸</span>Conducted cross-browser and cross-device testing via BrowserStack; logged and verified 80+ defects.</li>
               <li><span class="bullet-arrow">▸</span>Participated in sprint planning and retrospectives, contributing QA estimates and risk assessments.</li>
             </ul>
+
+            <hr class="divider">
+
+            <p class="job-block-title achievements">⭐ Key Achievements</p>
+            <ul class="job-list">
+              <li><span class="bullet-star">★</span>Built mobile QA processes for iOS and Android from zero — device coverage, test strategy, and release workflows.</li>
+              <li><span class="bullet-star">★</span>Improved Cypress regression suite pass rate from ~70% to ~90% across 50+ test scripts.</li>
+              <li><span class="bullet-star">★</span>Logged and verified 80+ defects, driving measurable reduction in post-release issues.</li>
+            </ul>
+
+            <div class="job-skill-tags">
+              <span class="job-skill-tag">Mobile Testing (iOS/Android)</span><span class="job-skill-tag">Cypress</span><span class="job-skill-tag">BrowserStack</span><span class="job-skill-tag">LambdaTest</span><span class="job-skill-tag">Postman</span><span class="job-skill-tag">SQL</span><span class="job-skill-tag">Jira</span><span class="job-skill-tag">TestRail</span><span class="job-skill-tag">Cross-Browser Testing</span>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- ChangeAgents -->
       <div class="job">
         <div class="job-dot"></div>
         <div class="job-card" onclick="toggleJob(this)">
@@ -427,20 +505,36 @@
             <div class="job-meta">
               <div class="job-top">
                 <span class="job-company">ChangeAgents AEC</span>
-                <span class="badge badge-domain">SaaS / B2B</span>
+                <span class="badge badge-domain">SaaS · B2B</span>
               </div>
               <p class="job-role">Junior QA Engineer</p>
               <p class="job-period">Jul 2022 – Jul 2023 · Full-time</p>
             </div>
             <span class="job-toggle">▼</span>
           </div>
-          <div class="job-bullets">
-            <ul>
-              <li><span class="bullet-arrow">▸</span>Executed manual functional and regression test cases for a B2B SaaS web application.</li>
-              <li><span class="bullet-arrow">▸</span>Created and maintained test plans and test case documentation in Confluence and TestRail.</li>
-              <li><span class="bullet-arrow">▸</span>Investigated UI and API defects using browser DevTools and Postman; filed detailed bug reports in Jira.</li>
-              <li><span class="bullet-arrow">▸</span>Gained hands-on experience with STLC, Agile ceremonies and cross-functional team collaboration.</li>
+          <div class="job-body">
+            <p class="job-desc">Web-based SaaS platform for the architecture, engineering, and construction industry. First QA role — built foundational skills across the full manual testing lifecycle.</p>
+
+            <p class="job-block-title responsibilities">Responsibilities</p>
+            <ul class="job-list">
+              <li><span class="bullet-arrow">▸</span>Executed functional, regression, and sanity testing aligned with sprint deliverables in Agile/Scrum.</li>
+              <li><span class="bullet-arrow">▸</span>Full defect lifecycle management in Jira — detailed bug reports, triage, and fix validation.</li>
+              <li><span class="bullet-arrow">▸</span>Cross-browser compatibility testing across Chrome, Firefox, Safari, and Edge.</li>
+              <li><span class="bullet-arrow">▸</span>Created and maintained test plans, test cases, and QA documentation in Confluence and TestRail.</li>
+              <li><span class="bullet-arrow">▸</span>Investigated UI and API defects using browser DevTools and Postman.</li>
             </ul>
+
+            <hr class="divider">
+
+            <p class="job-block-title achievements">⭐ Key Achievements</p>
+            <ul class="job-list">
+              <li><span class="bullet-star">★</span>Established QA documentation practices from scratch — test plans, test cases, and release checklists adopted by the team.</li>
+              <li><span class="bullet-star">★</span>Gained end-to-end STLC experience across requirements, planning, execution, and release sign-off within the first year.</li>
+            </ul>
+
+            <div class="job-skill-tags">
+              <span class="job-skill-tag">Manual Testing</span><span class="job-skill-tag">Jira</span><span class="job-skill-tag">Confluence</span><span class="job-skill-tag">TestRail</span><span class="job-skill-tag">Postman</span><span class="job-skill-tag">Agile</span><span class="job-skill-tag">Scrum</span><span class="job-skill-tag">Cross-Browser Testing</span><span class="job-skill-tag">STLC</span>
+            </div>
           </div>
         </div>
       </div>
@@ -478,10 +572,10 @@
 
 <script>
   function toggleJob(card) {
-    const bullets = card.querySelector('.job-bullets');
-    const toggle  = card.querySelector('.job-toggle');
-    const isOpen  = bullets.classList.contains('open');
-    bullets.classList.toggle('open', !isOpen);
+    const body   = card.querySelector('.job-body');
+    const toggle = card.querySelector('.job-toggle');
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
     toggle.classList.toggle('open', !isOpen);
     toggle.textContent = isOpen ? '▼' : '▲';
   }
