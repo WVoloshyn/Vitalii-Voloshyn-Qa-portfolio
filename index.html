@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vitalii Voloshyn — QA Engineer</title>
+  <meta name="description" content="Manual QA Engineer with 4+ years in iGaming, Fintech and SaaS. Open to remote roles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1F3864;
+      --blue: #2E75B6;
+      --blue-light: #90BEE8;
+      --white: #ffffff;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --slate-600: #475569;
+      --slate-800: #1e293b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--slate-800);
+      line-height: 1.6;
+    }
+
+    /* ── Navbar ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--slate-100);
+      height: 56px;
+      display: flex; align-items: center;
+    }
+    .nav-inner {
+      max-width: 1000px; margin: 0 auto; padding: 0 24px;
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand {
+      font-weight: 700; color: var(--navy); font-size: 13px; letter-spacing: .08em;
+    }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--slate-500);
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--blue); }
+
+    /* ── Sections ── */
+    section { padding: 80px 24px; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    .container-sm { max-width: 680px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 8px;
+    }
+    .section-label.light { color: #cbd5e1; }
+
+    h2.section-title {
+      font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 32px;
+    }
+
+    /* ── Hero ── */
+    #hero {
+      padding-top: 120px; padding-bottom: 80px;
+      text-align: center;
+    }
+    .avatar {
+      width: 96px; height: 96px; border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--blue);
+      box-shadow: 0 4px 20px rgba(46,117,182,0.25);
+      margin: 0 auto 24px;
+      display: block;
+    }
+    .avatar-fallback {
+      width: 96px; height: 96px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--navy));
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 28px; font-weight: 700;
+      margin: 0 auto 24px;
+      border: 3px solid var(--blue);
+      box-shadow: 0 4px 20px rgba(46,117,182,0.25);
+    }
+    .badge-remote {
+      display: inline-block; margin-bottom: 12px;
+      padding: 4px 14px; border-radius: 99px;
+      font-size: 11px; font-weight: 700; letter-spacing: .06em;
+      background: #dcfce7; color: #15803d;
+    }
+    h1.hero-name {
+      font-size: 36px; font-weight: 700; color: var(--navy);
+      margin-bottom: 8px; letter-spacing: -.01em;
+    }
+    .hero-titles {
+      font-size: 18px; font-weight: 500; color: var(--blue); margin-bottom: 6px;
+    }
+    .hero-sub {
+      font-size: 13px; color: var(--slate-500); margin-bottom: 28px;
+    }
+    .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 22px; border-radius: 8px;
+      font-size: 14px; font-weight: 600; text-decoration: none;
+      transition: all .2s; cursor: pointer;
+    }
+    .btn-primary { background: var(--blue); color: white; border: 2px solid var(--blue); }
+    .btn-primary:hover { background: var(--navy); border-color: var(--navy); }
+    .btn-outline { background: white; color: var(--blue); border: 2px solid var(--blue); }
+    .btn-outline:hover { background: #eff6ff; }
+
+    /* ── Skills ── */
+    #skills { background: var(--slate-50); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .skill-card {
+      border-radius: 12px; border: 1px solid; padding: 20px;
+    }
+    .skill-card.manual  { background: #eff6ff; border-color: #bfdbfe; }
+    .skill-card.api     { background: #eef2ff; border-color: #c7d2fe; }
+    .skill-card.tools   { background: var(--slate-50); border-color: var(--slate-200); }
+    .skill-card.methods { background: #f0fdfa; border-color: #99f6e4; }
+
+    .skill-card-title {
+      font-size: 11px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--slate-400); margin-bottom: 12px;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      padding: 4px 10px; border-radius: 99px;
+      font-size: 12px; font-weight: 500;
+    }
+    .skill-card.manual  .tag { background: #dbeafe; color: #1d4ed8; }
+    .skill-card.api     .tag { background: #e0e7ff; color: #4338ca; }
+    .skill-card.tools   .tag { background: var(--slate-100); color: var(--slate-600); }
+    .skill-card.methods .tag { background: #ccfbf1; color: #0f766e; }
+
+    /* ── Experience ── */
+    #experience { background: white; }
+    .timeline { position: relative; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 16px; top: 8px; bottom: 8px; width: 2px;
+      background: #dbeafe;
+    }
+    .job { padding-left: 48px; position: relative; margin-bottom: 20px; }
+    .job-dot {
+      position: absolute; left: 10px; top: 20px;
+      width: 12px; height: 12px; border-radius: 50%;
+      border: 2px solid #bfdbfe; background: white;
+    }
+    .job-dot.current { border-color: var(--blue); background: var(--blue); }
+
+    .job-card {
+      border: 1px solid var(--slate-200); border-radius: 12px;
+      background: white; cursor: pointer;
+      transition: border-color .2s, box-shadow .2s;
+      overflow: hidden;
+    }
+    .job-card:hover { border-color: var(--blue); box-shadow: 0 2px 8px rgba(46,117,182,.1); }
+    .job-header { padding: 18px 20px; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .job-meta { flex: 1; }
+    .job-top { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 3px; }
+    .job-company { font-size: 15px; font-weight: 700; color: var(--navy); }
+    .badge {
+      font-size: 11px; padding: 2px 8px; border-radius: 99px; font-weight: 600;
+    }
+    .badge-current { background: #dcfce7; color: #15803d; }
+    .badge-domain { background: #eff6ff; color: var(--blue); }
+    .job-role { font-size: 14px; font-weight: 500; color: var(--blue); margin-bottom: 2px; }
+    .job-period { font-size: 12px; color: var(--slate-400); }
+    .job-toggle { color: var(--slate-300); font-size: 13px; flex-shrink: 0; margin-top: 2px; transition: transform .2s; }
+    .job-toggle.open { transform: rotate(180deg); }
+
+    .job-bullets {
+      border-top: 1px solid var(--slate-100);
+      padding: 16px 20px;
+      display: none;
+    }
+    .job-bullets.open { display: block; }
+    .job-bullets ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .job-bullets li { display: flex; gap: 8px; font-size: 13px; color: var(--slate-600); line-height: 1.55; }
+    .bullet-arrow { color: var(--blue); flex-shrink: 0; margin-top: 1px; }
+
+    /* ── Contact ── */
+    #contact { background: var(--navy); text-align: center; }
+    #contact .section-label.light { color: #cbd5e1; }
+    #contact h2.section-title { color: white; }
+    .contact-desc {
+      color: #e2e8f0; font-size: 14px; margin-bottom: 32px;
+      max-width: 420px; margin-left: auto; margin-right: auto;
+      line-height: 1.7;
+    }
+    .contact-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .btn-contact-primary {
+      background: var(--blue); color: white; border: 2px solid var(--blue);
+    }
+    .btn-contact-primary:hover { background: #3b82f6; border-color: #3b82f6; }
+    .btn-contact-outline {
+      background: transparent; color: white; border: 2px solid #cbd5e1;
+    }
+    .btn-contact-outline:hover { background: var(--blue); border-color: var(--blue); }
+    .contact-footer {
+      font-size: 12px; color: #cbd5e1; font-weight: 500;
+      display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--slate-50); border-top: 1px solid var(--slate-100);
+      padding: 16px 24px; text-align: center;
+      font-size: 12px; color: var(--slate-400);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      h1.hero-name { font-size: 28px; }
+      .hero-titles { font-size: 16px; }
+      .timeline::before { display: none; }
+      .job { padding-left: 0; }
+      .job-dot { display: none; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-brand">VITALII VOLOSHYN</span>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="container-sm">
+    <img
+      src="./photo.jpg"
+      alt="Vitalii Voloshyn"
+      class="avatar"
+      onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';"
+    />
+    <div class="avatar-fallback" id="avatar-fallback" style="display:none;">VV</div>
+
+    <span class="badge-remote">● Open to Remote</span>
+    <h1 class="hero-name">Vitalii Voloshyn</h1>
+    <p class="hero-titles">QA Engineer · QC Engineer · Test Engineer</p>
+    <p class="hero-sub">4+ Years · Manual Testing · API · Mobile · Playwright · Grafana K6 · Fintech · iGaming</p>
+    <div class="hero-cta">
+      <a href="mailto:woloshinvit@gmail.com" class="btn btn-primary">✉ Get in touch</a>
+      <a href="https://www.linkedin.com/in/vitalii-voloshyn/" target="_blank" rel="noreferrer" class="btn btn-outline">in LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">Skills</p>
+    <h2 class="section-title">Testing stack & tools</h2>
+    <div class="skills-grid">
+
+      <div class="skill-card manual">
+        <p class="skill-card-title">Manual Testing</p>
+        <div class="tags">
+          <span class="tag">Functional Testing</span>
+          <span class="tag">Regression Testing</span>
+          <span class="tag">Smoke Testing</span>
+          <span class="tag">Exploratory Testing</span>
+          <span class="tag">Integration Testing</span>
+          <span class="tag">UAT</span>
+          <span class="tag">Cross-browser Testing</span>
+          <span class="tag">Mobile Testing</span>
+        </div>
+      </div>
+
+      <div class="skill-card api">
+        <p class="skill-card-title">API & Performance</p>
+        <div class="tags">
+          <span class="tag">REST API Testing</span>
+          <span class="tag">Postman</span>
+          <span class="tag">Playwright</span>
+          <span class="tag">Cypress</span>
+          <span class="tag">Grafana K6</span>
+          <span class="tag">Performance Testing</span>
+        </div>
+      </div>
+
+      <div class="skill-card tools">
+        <p class="skill-card-title">Tools & Platforms</p>
+        <div class="tags">
+          <span class="tag">Jira</span>
+          <span class="tag">TestRail</span>
+          <span class="tag">Confluence</span>
+          <span class="tag">BrowserStack</span>
+          <span class="tag">LambdaTest</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Git</span>
+        </div>
+      </div>
+
+      <div class="skill-card methods">
+        <p class="skill-card-title">Methodologies</p>
+        <div class="tags">
+          <span class="tag">Agile</span>
+          <span class="tag">Scrum</span>
+          <span class="tag">STLC</span>
+          <span class="tag">SDLC</span>
+          <span class="tag">Test Planning</span>
+          <span class="tag">Bug Reporting</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Experience</p>
+    <h2 class="section-title">4+ years across iGaming, Fintech & SaaS</h2>
+    <div class="timeline">
+
+      <div class="job">
+        <div class="job-dot current"></div>
+        <div class="job-card" onclick="toggleJob(this)">
+          <div class="job-header">
+            <div class="job-meta">
+              <div class="job-top">
+                <span class="job-company">Spinner</span>
+                <span class="badge badge-current">Current</span>
+                <span class="badge badge-domain">iGaming</span>
+              </div>
+              <p class="job-role">QA Engineer</p>
+              <p class="job-period">Sep 2025 – Present · Full-time · Remote</p>
+            </div>
+            <span class="job-toggle">▼</span>
+          </div>
+          <div class="job-bullets">
+            <ul>
+              <li><span class="bullet-arrow">▸</span>Leading end-to-end QA for a live iGaming platform serving thousands of concurrent users.</li>
+              <li><span class="bullet-arrow">▸</span>Designing and maintaining regression, smoke and functional test suites in TestRail.</li>
+              <li><span class="bullet-arrow">▸</span>Executing API testing via Postman; documenting defects and tracking resolution in Jira.</li>
+              <li><span class="bullet-arrow">▸</span>Collaborating with developers in Agile sprints to shift quality left and reduce defect leakage.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-dot"></div>
+        <div class="job-card" onclick="toggleJob(this)">
+          <div class="job-header">
+            <div class="job-meta">
+              <div class="job-top">
+                <span class="job-company">Rezet — JIGZO</span>
+                <span class="badge badge-domain">Fintech / Payments</span>
+              </div>
+              <p class="job-role">QA Engineer</p>
+              <p class="job-period">May 2024 – Dec 2025 · Contract · Remote</p>
+            </div>
+            <span class="job-toggle">▼</span>
+          </div>
+          <div class="job-bullets">
+            <ul>
+              <li><span class="bullet-arrow">▸</span>Built automated UI test coverage with Playwright (TypeScript) reducing manual regression effort by ~40%.</li>
+              <li><span class="bullet-arrow">▸</span>Defined and executed performance load scripts using Grafana K6; identified bottlenecks under simulated peak load.</li>
+              <li><span class="bullet-arrow">▸</span>Wrote and maintained SQL queries to validate backend data integrity across payment flows.</li>
+              <li><span class="bullet-arrow">▸</span>Logged and triaged 150+ bugs in Jira; established defect classification standards adopted team-wide.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-dot"></div>
+        <div class="job-card" onclick="toggleJob(this)">
+          <div class="job-header">
+            <div class="job-meta">
+              <div class="job-top">
+                <span class="job-company">Rezet — Hagedoo</span>
+                <span class="badge badge-domain">Marketplace / E-commerce</span>
+              </div>
+              <p class="job-role">QA Engineer</p>
+              <p class="job-period">Jul 2023 – May 2024 · Contract · Remote</p>
+            </div>
+            <span class="job-toggle">▼</span>
+          </div>
+          <div class="job-bullets">
+            <ul>
+              <li><span class="bullet-arrow">▸</span>Performed functional, regression and exploratory testing across web and mobile (iOS/Android) surfaces.</li>
+              <li><span class="bullet-arrow">▸</span>Maintained comprehensive test suites in TestRail and produced weekly quality status reports.</li>
+              <li><span class="bullet-arrow">▸</span>Conducted cross-browser and cross-device testing via BrowserStack; logged and verified 80+ defects.</li>
+              <li><span class="bullet-arrow">▸</span>Participated in sprint planning and retrospectives, contributing QA estimates and risk assessments.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-dot"></div>
+        <div class="job-card" onclick="toggleJob(this)">
+          <div class="job-header">
+            <div class="job-meta">
+              <div class="job-top">
+                <span class="job-company">ChangeAgents AEC</span>
+                <span class="badge badge-domain">SaaS / B2B</span>
+              </div>
+              <p class="job-role">Junior QA Engineer</p>
+              <p class="job-period">Jul 2022 – Jul 2023 · Full-time</p>
+            </div>
+            <span class="job-toggle">▼</span>
+          </div>
+          <div class="job-bullets">
+            <ul>
+              <li><span class="bullet-arrow">▸</span>Executed manual functional and regression test cases for a B2B SaaS web application.</li>
+              <li><span class="bullet-arrow">▸</span>Created and maintained test plans and test case documentation in Confluence and TestRail.</li>
+              <li><span class="bullet-arrow">▸</span>Investigated UI and API defects using browser DevTools and Postman; filed detailed bug reports in Jira.</li>
+              <li><span class="bullet-arrow">▸</span>Gained hands-on experience with STLC, Agile ceremonies and cross-functional team collaboration.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container-sm">
+    <p class="section-label light">Contact</p>
+    <h2 class="section-title">Let's work together</h2>
+    <p class="contact-desc">
+      Available for remote QA Engineer roles globally.<br>
+      Fast response — usually within 24 hours.
+    </p>
+    <div class="contact-btns">
+      <a href="mailto:woloshinvit@gmail.com" class="btn btn-contact-primary">✉ woloshinvit@gmail.com</a>
+      <a href="https://www.linkedin.com/in/vitalii-voloshyn/" target="_blank" rel="noreferrer" class="btn btn-contact-outline">in LinkedIn Profile</a>
+    </div>
+    <div class="contact-footer">
+      <span>● Open to Remote</span>
+      <span>·</span>
+      <span>4+ Years Experience</span>
+      <span>·</span>
+      <span>Fintech · iGaming · SaaS</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Vitalii Voloshyn · QA Engineer
+</footer>
+
+<script>
+  function toggleJob(card) {
+    const bullets = card.querySelector('.job-bullets');
+    const toggle  = card.querySelector('.job-toggle');
+    const isOpen  = bullets.classList.contains('open');
+    bullets.classList.toggle('open', !isOpen);
+    toggle.classList.toggle('open', !isOpen);
+    toggle.textContent = isOpen ? '▼' : '▲';
+  }
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+</body>
+</html>
